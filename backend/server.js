@@ -5,7 +5,7 @@ const connectDB=require('./config/db');
 
 const billingRoute= require('./routes/billingroutes'); // correct path
 const invoiceRoute=require('./routes/invoiceRoutes');
-const paymentRoute=require('./routes/paymentroutes');
+const paymentRoute=require('./routes/paymentRoutes');
 
 connectDB();
 
