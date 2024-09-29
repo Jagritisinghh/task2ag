@@ -12,7 +12,7 @@ export const BillingProvider = ({ children }) => {
   useEffect(() => {
     const fetchBillingDetails = async () => {
       try {
-        const response = await fetch('http://localhost:3006/api/billing-details'); // Adjust the endpoint as needed
+        const response = await fetch('https://task2ag-1.onrender.com/api/billing-details'); // Adjust the endpoint as needed
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }

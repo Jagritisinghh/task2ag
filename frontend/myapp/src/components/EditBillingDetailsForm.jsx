@@ -35,7 +35,7 @@ const EditBillingDetailsForm = () => {
 
       try {
         // Make an API call to update billing details in the backend
-        const response = await fetch('http://localhost:3006/api/update-billing-details', {
+        const response = await fetch('https://task2ag-1.onrender.com/api/update-billing-details', {
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json',

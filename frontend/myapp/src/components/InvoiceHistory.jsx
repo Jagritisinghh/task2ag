@@ -17,7 +17,7 @@ const InvoiceHistory = () => {
     // Function to fetch invoice data from the backend
     const fetchInvoices = async () => {
       try {
-        const response = await fetch('http://localhost:3006/api/invoices'); // Adjust the API endpoint as needed
+        const response = await fetch('https://task2ag-1.onrender.com/api/invoices'); // Adjust the API endpoint as needed
         if (!response.ok) {
           throw new Error('Failed to fetch invoices');
         }
