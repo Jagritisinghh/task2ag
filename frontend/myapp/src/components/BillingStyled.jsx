@@ -74,3 +74,13 @@ export const ErrorMsg = styled.p`
   color: red;
   font-size: 0.9rem;
 `;
+
+export const PaymentRow = styled.div`
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  border-bottom: 1px solid #e0e0e0;
+  span {
+    width: 25%;
+  }
+`;

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Section, InvoiceRow, Label } from './BillingStyled';
 
-
 const formatDate = (dateString) => {
   const options = { year: 'numeric', month: '2-digit', day: '2-digit' };
   const date = new Date(dateString);
@@ -17,12 +16,12 @@ const InvoiceHistory = () => {
     // Function to fetch invoice data from the backend
     const fetchInvoices = async () => {
       try {
-        const response = await fetch('https://task2ag-1.onrender.com/api/invoices'); // Adjust the API endpoint as needed
+        const response = await fetch('http://localhost:3006/api/invoices');
         if (!response.ok) {
           throw new Error('Failed to fetch invoices');
         }
         const data = await response.json();
-        console.log("invoice",data.invoices);
+        console.log(data)
         setInvoices(data.invoices); // Assuming 'invoices' is an array from the response
       } catch (error) {
         setError(error.message);
@@ -37,6 +36,15 @@ const InvoiceHistory = () => {
   if (loading) return <p>Loading...</p>;
   if (error) return <p>{error}</p>;
 
+  // Function to download invoice
+  const downloadInvoice = (invoiceId) => {
+    console.log("id",invoiceId)
+    // Replace this URL with your backend's actual invoice download route
+    const downloadUrl = `http://localhost:3006/api/invoices/download/${invoiceId}`;
+    console.log(downloadUrl);
+    window.open(downloadUrl, '_blank');
+  };
+
   return (
     <Section>
       <Label>Invoice History</Label>
@@ -47,7 +55,7 @@ const InvoiceHistory = () => {
             <span>{formatDate(invoice.invoiceDate)}</span>
             <span>{invoice.invoiceAmount}</span>
             <span>{invoice.paymentStatus}</span>
-            <a href={invoice.invoiceLink}>Download PDF</a>
+            <button onClick={() => downloadInvoice(invoice._id)}>Download PDF</button>
           </InvoiceRow>
         ))
       ) : (
