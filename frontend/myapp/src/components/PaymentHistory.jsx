@@ -15,7 +15,9 @@ const PaymentHistory = () => {
   useEffect(() => {
     const fetchPayments = async () => {
       try {
-        const response = await fetch('http://localhost:3006/api/payment'); // Replace with correct API endpoint
+        const response = await fetch('https://task2ag-1.onrender.com/api/payment');
+        console.log("payment res",response);
+         // Replace with correct API endpoint
         if (!response.ok) {
           throw new Error('Failed to fetch payments');
         }

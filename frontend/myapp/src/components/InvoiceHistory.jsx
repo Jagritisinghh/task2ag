@@ -16,7 +16,7 @@ const InvoiceHistory = () => {
     // Function to fetch invoice data from the backend
     const fetchInvoices = async () => {
       try {
-        const response = await fetch('http://localhost:3006/api/invoices');
+        const response = await fetch('https://task2ag-1.onrender.com/api/invoices');
         if (!response.ok) {
           throw new Error('Failed to fetch invoices');
         }
@@ -40,7 +40,7 @@ const InvoiceHistory = () => {
   const downloadInvoice = (invoiceId) => {
     console.log("id",invoiceId)
     // Replace this URL with your backend's actual invoice download route
-    const downloadUrl = `http://localhost:3006/api/invoices/download/${invoiceId}`;
+    const downloadUrl = `https://task2ag-1.onrender.com/api/invoices/download/${invoiceId}`;
     console.log(downloadUrl);
     window.open(downloadUrl, '_blank');
   };
